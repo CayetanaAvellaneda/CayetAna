@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CayetAna - Monos únicos y cómodos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Carrito flotante arriba -->
+  <div id="cartFloating" class="cart-floating">
+    <button id="cartToggle" class="cart-toggle">
+      <span>🛍️</span>
+      <span id="cartBadge" class="cart-badge">0</span>
+    </button>
+    <div id="cartPanel" class="cart-panel">
+      <h3>Carrito</h3>
+      <div id="cartList" class="cart-list"></div>
+      <div class="cart-panel__footer">
+        <p class="cart-total">Total: <strong id="cartTotal">$0</strong></p>
+        <button id="proceedCheckout" class="btn btn--primary" style="width: 100%; margin-top: 8px;">Finalizar compra</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">CayetAna</div>
+    <nav class="nav">
+        <button class="nav__link" data-nav="inicio">Inicio</button>
+      <button class="nav__link" data-nav="home">Producto</button>
+      <button class="nav__link" data-nav="about">Nosotros</button>
+      <button class="nav__link" data-nav="contact">Contacto</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- SECCIÓN INICIO/HERO -->
+    <section id="inicio" class="section hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title">CayetAna</h1>
+        <p class="hero-subtitle">Monos únicos y versátiles para cualquier ocasión</p>
+        <a href="#home" class="btn btn--primary btn--hero">Ver producto</a>
+      </div>
+    </section>
+
+    <!-- SECCIÓN HOME - PRODUCTO -->
+    <section id="home" class="section section--grid">
+      <div class="hero__image">
+        <img src="img/il_570xN.6755169089_iclb.webp" alt="Mono negro CayetAna" loading="lazy">
+      </div>
+      <div class="card">
+        <p class="eyebrow">Colección exclusiva</p>
+        <h1 class="title">Mono Negro</h1>
+        <p class="subtitle">Cómodo, único y versátil. Perfecto para el día y la noche.</p>
+        <div class="price" id="priceDisplay"></div>
+
+        <form id="productForm" class="form">
+          <label class="form__label">Talle *</label>
+          <div class="pill-group">
+            <label class="pill"><input type="radio" name="size" value="S-M" checked> S-M</label>
+            <label class="pill"><input type="radio" name="size" value="M-L"> M-L</label>
+            <label class="pill"><input type="radio" name="size" value="L"> L</label>
+            <label class="pill"><input type="radio" name="size" value="XXL"> XXL</label>
+          </div>
+
+          <label class="form__label" for="qty">Cantidad *</label>
+          <input id="qty" name="qty" type="number" min="1" max="5" value="1" class="input">
+          <p class="hint">Para compras mayores a 5 unidades comunícate por WhatsApp.</p>
+
+          <button type="submit" class="btn btn--primary">Agregar al carrito</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- SECCIÓN NOSOTROS -->
+    <section id="about" class="section card">
+      <div class="section__header">
+        <h2>Nosotros</h2>
+      </div>
+      <div class="about-content">
+        <p>Somos madre e hija. Nació esta idea porque queríamos ofrecer un producto que sea <strong>cómodo, único, fresco</strong> y que se pueda usar tanto en el día como en la noche.</p>
+        <p>El mono negro es nuestra forma de expresar que la ropa perfecta existe: versátil, elegante y lista para cualquier ocasión.</p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN CONTACTO -->
+    <section id="contact" class="section card">
+      <div class="section__header">
+        <h2>Contacto</h2>
+      </div>
+      <div class="contact-content">
+        <p>¿Dudas o consultas? Nos encantaría escucharte.</p>
+        <a href="https://wa.me/5491127419605?text=Hola%20CayetAna%2C%20quiero%20saber%20m%C3%A1s" target="_blank" rel="noopener" class="btn btn--primary">
+          WhatsApp: 11 2741-9605
+        </a>
+      </div>
+    </section>
+
+    <!-- SECCIÓN CHECKOUT - DATOS Y ENVÍO -->
+    <section id="checkout" class="section card section--hidden">
+      <div class="section__header">
+        <h2>Datos de entrega</h2>
+        <p class="muted">Completá tus datos para continuar.</p>
+      </div>
+
+      <form id="checkoutForm" class="form form--grid">
+        <h3 style="grid-column: 1/-1; margin-top: 0;">Datos del comprador</h3>
+        <div>
+          <label class="form__label" for="fullName">Nombre y apellido *</label>
+          <input id="fullName" name="fullName" type="text" required class="input" placeholder="Ej: Ana Pérez">
+        </div>
+        <div>
+          <label class="form__label" for="phone">Teléfono *</label>
+          <input id="phone" name="phone" type="tel" required class="input" placeholder="Ej: 11 5555 5555">
+        </div>
+        <div>
+          <label class="form__label" for="email">Email</label>
+          <input id="email" name="email" type="email" class="input" placeholder="tu@mail.com">
+        </div>
+
+        <h3 style="grid-column: 1/-1; margin-top: 16px;">Dirección de entrega</h3>
+        <div>
+          <label class="form__label" for="address">Dirección completa *</label>
+          <input id="address" name="address" type="text" required class="input" placeholder="Calle 123, piso 4">
+        </div>
+        <div>
+          <label class="form__label" for="zone">Zona / Provincia *</label>
+          <input id="zone" name="zone" type="text" required class="input" placeholder="Ej: CABA, Gran Buenos Aires">
+        </div>
+        <div class="full-row">
+          <label class="form__label" for="notes">Observaciones (opcional)</label>
+          <textarea id="notes" name="notes" rows="3" class="input" placeholder="Detalles importantes para la entrega"></textarea>
+        </div>
+
+        <h3 style="grid-column: 1/-1; margin-top: 16px;">Opción de envío</h3>
+        <div class="full-row">
+          <div class="option-group" id="shippingOptions">
+            <label class="option"><input type="radio" name="shipping" value="Retiro en punto de encuentro" data-cost="0" checked> Retiro en punto de encuentro (sin cargo)</label>
+            <label class="option"><input type="radio" name="shipping" value="Envío a CABA" data-cost="500"> Envío a CABA ($500)</label>
+            <label class="option"><input type="radio" name="shipping" value="Envío a Provincia" data-cost="1500"> Envío a Provincia ($1.500)</label>
+          </div>
+        </div>
+
+        <div class="full-row actions">
+          <button type="submit" class="btn btn--primary">Continuar al pago</button>
+        </div>
+      </form>
+    </section>
+
+
+    <!-- SECCIÓN PAGO -->
+    <section id="payment" class="section card section--hidden">
+      <div class="section__header">
+        <h2>Opciones de pago</h2>
+        <p class="muted">Elige tu forma de pago.</p>
+      </div>
+
+      <div id="paymentOptions" class="option-group">
+        <label class="option">
+          <input type="radio" name="payment" value="mercado-pago" checked>
+          <div>
+            <strong>Mercado Pago</strong>
+            <p class="muted" style="margin: 4px 0 0 0; font-size: 13px;">Tarjeta, billetera, etc.</p>
+          </div>
+        </label>
+        <label class="option">
+          <input type="radio" name="payment" value="efectivo">
+          <div>
+            <strong>Efectivo</strong>
+            <p class="muted" style="margin: 4px 0 0 0; font-size: 13px;">Pagar en el punto de encuentro</p>
+          </div>
+        </label>
+        <label class="option">
+          <input type="radio" name="payment" value="transferencia">
+          <div>
+            <strong>Transferencia bancaria</strong>
+            <p class="muted" style="margin: 4px 0 0 0; font-size: 13px;">Te pasaremos los datos por WhatsApp</p>
+          </div>
+        </label>
+      </div>
+
+      <div id="paymentSummary" class="payment-summary">
+        <p><strong>Subtotal:</strong> <span id="summarySubtotal">$0</span></p>
+        <p><strong>Envío:</strong> <span id="summaryShipping">$0</span></p>
+        <p class="totals"><strong>Total:</strong> <span id="summaryTotal">$0</span></p>
+      </div>
+
+      <div class="actions full-row" style="margin-top: 16px;">
+        <button id="paymentSubmit" class="btn btn--primary" style="width: 100%;">Confirmar pedido</button>
+      </div>
+    </section>
+
+    <!-- SECCIÓN CONFIRMACIÓN -->
+    <section id="confirmation" class="section card section--hidden">
+      <div class="section__header">
+        <h2>¡Pedido confirmado!</h2>
+      </div>
+      <div id="confirmationContent" class="confirmation-content"></div>
+    </section>
+
+  </main>
+
+  <!-- WhatsApp flotante -->
+  <a id="whatsappFloat" class="whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
+    💬
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
